@@ -4,6 +4,33 @@ import { createPortal } from 'react-dom'
 
 const modalRoot = document.querySelector('#modal-root')
 
+// export default function Modal({largeImageURL, alt, onClose}) {
+//    useEffect(() => {
+//          window.addEventListener('keydown', handleKeyDown);
+//          window.removeEventListener('keydown', handleKeyDown);
+       
+//      },[])
+
+//     const handleKeyDown = (event) => {
+//         if (event.code === 'Escape') {
+//             onClose();
+//         };
+//     }
+
+//     const handleBackdropClick = event => {
+//         if (event.currentTarget === event.target) {
+//             onClose()
+//         }
+//     }
+
+//     return createPortal(
+//         <div className="overlay" onClick={handleBackdropClick}>
+//             <div className="modal">
+//                 <img src={largeImageURL} alt={alt} />
+//             </div>
+//         </div>, modalRoot)
+// }
+
 export default class Modal extends React.Component { 
     componentDidMount() {
         window.addEventListener('keydown', this.handleKeyDown);

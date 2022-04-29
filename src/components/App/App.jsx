@@ -1,43 +1,44 @@
-import React from "react";
+import {useState} from "react";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.scss'
 import Searchbar from '../Searchbar/Searchbar'
 import ImageGallery from '../ImageGallery/ImageGallery'
 
-// import Modal from '../Modal/Modal'
 
+export default function App() {
+  const [imageName, setImageName] = useState('')
 
+  const handleFormSubmit = (imageName) => {
+      setImageName(imageName)
+  }
 
-
-export default class App extends React.Component { 
-  state = {
-    imageName: '',
-    // showModal: false
-    }
-  
-    // toggleModal = () => {
-    //   this.setState(({showModal}) => ({
-    //   showModal: !showModal
-    // }))
-    // }
-  
-  handleFormSubmit = imageName => {
-      this.setState({imageName})
-    }
-
-  render() {
-    return (
+  return (
       <section className='app'>
-        <Searchbar onSubmit={ this.handleFormSubmit} />
-        <ImageGallery imageName={this.state.imageName}/>
-        
-        {/* <button type='button' onClick={this.toggleModal}>Открыть модальное окно</button>
-        {this.state.showModal && <Modal onClose={ this.toggleModal } onClick={ this.toggleModal } onClickBackDrop={ this.toggleModal }></Modal>} */}
-        
+        <Searchbar onSubmit={handleFormSubmit} />
+        <ImageGallery imageName={imageName}/>
         <ToastContainer autoClose={3000} />
       </section>
     )
-  }
-}
+ }
+
+// export default class App extends React.Component { 
+//   state = {
+//     imageName: '',
+//     }
+  
+//   handleFormSubmit = imageName => {
+//       this.setState({imageName})
+//     }
+
+//   render() {
+//     return (
+//       <section className='app'>
+//         <Searchbar onSubmit={ this.handleFormSubmit} />
+//         <ImageGallery imageName={this.state.imageName}/>
+//         <ToastContainer autoClose={3000} />
+//       </section>
+//     )
+//   }
+// }
 

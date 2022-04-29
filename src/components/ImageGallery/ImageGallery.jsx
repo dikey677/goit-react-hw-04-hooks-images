@@ -100,6 +100,7 @@ export default function ImageGallery({imageName}) {
                     <ImageGalleryItem key={hit.id} onClick={toggleModalOpen} pageURL={hit.webformatURL} largeImageURL={hit.largeImageURL} alt={imageName} onShowModal={toggleModalOpen} />)
             }
                 </ul>
+            
                 <Button onLoading={loadingImageMore} />
             </>)
     }

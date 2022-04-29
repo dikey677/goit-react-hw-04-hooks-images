@@ -22,23 +22,4 @@ export default function App() {
     )
  }
 
-// export default class App extends React.Component { 
-//   state = {
-//     imageName: '',
-//     }
-  
-//   handleFormSubmit = imageName => {
-//       this.setState({imageName})
-//     }
-
-//   render() {
-//     return (
-//       <section className='app'>
-//         <Searchbar onSubmit={ this.handleFormSubmit} />
-//         <ImageGallery imageName={this.state.imageName}/>
-//         <ToastContainer autoClose={3000} />
-//       </section>
-//     )
-//   }
-// }
 

@@ -82,15 +82,15 @@ export default function ImageGallery({imageName}) {
     }
 
     if (status === Status.IDLE) {
-        return <h1>Введите название изображения</h1>
+        return <h1 className="title-idle">Введите название изображения</h1>
     }
 
     if (status === Status.PENDING) {
-        return <p>Загружаем...</p>
+        return <p className="loader">Загружаем...</p>
     }
 
     if (!dataState.length) {
-        return <h1>Ошибка, изображение <span className="errorImg">{imageName}</span> не найдено</h1>
+        return <h1 className="error">Error, picture <span className="errorImg">{imageName}</span> was not found</h1>
     }
 
     if (status === Status.RESOLVED) {
@@ -101,7 +101,10 @@ export default function ImageGallery({imageName}) {
                                 <ImageGalleryItem key={hit.id} onClick={toggleModalOpen} pageURL={hit.webformatURL} largeImageURL={hit.largeImageURL} alt={imageName} onShowModal={toggleModalOpen} />)
                         }
                     </ul>
-                    <Button onLoading={loadingImageMore} />
+                    
+                    <div className="button-load-more">
+                        <Button onLoading={loadingImageMore} />
+                    </div>
                 </div>)
     }
 }
